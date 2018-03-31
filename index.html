@@ -1,67 +1,50 @@
-<script>
-// need to capture the player name to generate personalized experience
-var playerName = prompt("Type in your gamer-name and hit 'OK'");
+<!DOCTYPE html>
+<html lang="en">
 
-// ensure the player wants to play
-var playForSure = confirm( playerName + " ,are you sure you want to play Hangman?");
+<head>
+    <meta charset="UTF-8">
+    <title>HangPerson: The Game</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" />  
+    <script src="javascript/game.js"></script>
+</head>
 
-// need to have a list of words for the game to match the theme
-var wordList = [    "reining", 
-                    "dressage", 
-                    "western", 
-                    "trail", 
-                    "pleasure", 
-                    "hunter", 
-                    "english", 
-                    "barrel"
-                ];
-// placeholders for the number of wins and losses
-var wins = 0;
-var losses = 0;
+<body id="gameboard">
+        <div class="container">
 
-// a word is randomly selected from the list
-var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+                <h1>Welcome to Hosrey Hangman</h1>
+                <hr />
+        
+                <div class="row">
+        
+                    <div class="col-md-4" id="instructions">
+                        <h5>Game Play</h5>
+                        <p>1. Each blank line repesents a letter</p>
+                        <p>2. You get sixes (6) misses per round (a head, body, 2 arms and 2 legs)</p>
+                        <p>3. A correct guess does not add a body part; an incorrect adds a body part</p>
+                        <p>4. One you have a create a full body and not guessed the word, your pony runs away and you are left hangin'</p>
+                        <p>5. Correct guesses do not add body parts</p>
+                        <p>6. Keep guessing letters until you either solve the word or your pony runs away.</p>
+                        <p>7. Correct letters guess will replace the blank spaces; incorrect guesses will be listed below the gameboard.</p>
+                    </div>
 
-                
-// show the empty place holders for the random select word
-var emptyWord = [];
-for (var i = 0; i < randomWord.length; i++)
-    { 
-        emptyWord[i] = " _ ";
-    }
+                    <div class="col-md-4" id="playarea">
+                        <h5>Keep the Noose off Your Neck & Your Horse Under Neither You</h5>
+                   </div>
 
-// show how many guesses the player has (6 guesses per word)
-var remainingGuess = 6;
-
-while (remainingGuess > 0) 
-    { 
-        (emptyWord.join(" "));
-// player provides a guess (input from keyboard)
-document.onkeyup = function(event) {
-
-    var guessedLetter = event.key;
-// game either adds letter into the random word or in the area of guessed letters
-// if the letter is in the word guesses left does not change; if letter is not in the word guesses reduces
-     
-        for (var j = 0; j < randomWord.length; j++) 
-    {
-        if(randomWord[j] === guessedLetter) 
-    {
-        emptyWord[j] = guessedLetter; 
-        remainingGuess--;
-    }
-    }
-    }
+                   <div class="col-md-4" id="scoreboard">
+                       <h5>Wins and Losses</h5>
+                   </div>
+                </div>   
+        </div>                 
 
 
-
-// when guesses = 0, round is over; if word is guessed before round is over player wins else computer wins
-
-// to have a quit quit game option and start over option
-}
-alert(emptyWord.join(" "));
-// need to display wins and losses
-document.querySelector("Good Job! The answer was " + randomWord).innerHTML = html;
+<script type="text/javascript"> 
 
 
 </script>
+
+</body>
+
+</html>

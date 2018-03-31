@@ -1,0 +1,11 @@
+body    {
+  background-image: url("../images/zenlocale.jpg");
+  background-image: 960px;
+  width:960px;
+  padding:50px;
+  border:20px;
+  margin:20px;
+  color:rgb(240, 52, 208);
+  font-size: 18px;
+  line-height: 27px;
+}  
